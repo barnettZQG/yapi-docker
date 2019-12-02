@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # yapi初始化后会有一个init.lock文件
-lockPath="/yapi/init.lock"
+lockPath="/yapi/data/init.lock"
 
 
 # 进入yapi项目

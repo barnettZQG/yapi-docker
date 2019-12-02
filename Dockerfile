@@ -13,7 +13,7 @@ LABEL MAINTAINER = 'crper@outlook.com(https://github.com/crper)'
 RUN apk update \
   && apk add --no-cache  git nodejs npm  bash vim  python python-dev gcc libcurl make\
   && rm -rf /var/cache/apk/* \
-  && mkdir /yapi && cd /yapi && git clone https://github.com/YMFE/yapi.git vendors \
+  && mkdir /yapi && cd /yapi && git clone https://github.com/barnettZQG/yapi vendors \
   && npm i -g node-gyp yapi-cli npm@latest \
   && cd /yapi/vendors && npm i --production;
 # 工作目录
@@ -26,7 +26,7 @@ COPY entrypoint.sh /usr/local/bin/
 COPY .vimrc /root/
 # 向外暴露的端口
 EXPOSE 3000
-
+VOLUME /yapi/data
 # 配置入口为bash shell
 ENTRYPOINT ["entrypoint.sh"]
 
